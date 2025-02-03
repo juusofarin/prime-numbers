@@ -2,6 +2,7 @@ import time
 import sqlite3
 import os
 import unittest
+import sys
 
 def get_prime_factors(n):
     factors = set()
@@ -84,7 +85,6 @@ def main(number):
         print("Invalid input. Please enter an integer.")
 
 if __name__ == "__main__":
-    import sys
     if len(sys.argv) > 1:
         try:
             num = int(sys.argv[1])
@@ -108,5 +108,5 @@ class TestPrimeFactors(unittest.TestCase):
         factors, time_taken = get_from_database(50)
         self.assertEqual(factors, [2, 5])
 
-if __name__ == "__main__":
+if __name__ == "__main__" and not sys.argv[1:]:
     unittest.main()
